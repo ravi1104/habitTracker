@@ -1,0 +1,16 @@
+.habitDetailContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .habitDetailTitle {
+    margin-top: 0;
+  }
+  
+  .habitDetailSelect {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  

@@ -1,0 +1,20 @@
+/* HabitListWeek.module.css */
+
+.habit-week-container {
+    margin-top: 20px;
+  }
+  
+  .day-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .link {
+    display: block;
+    margin-top: 10px;
+    color: blue;
+    text-decoration: none;
+  }
+  
