@@ -16,8 +16,8 @@ const HabitDetail = ({ habit, updateHabit }) => {
 
   return (
     <div className={styles.habitDetailContainer}>
-      <h2 className={styles.habitDetailTitle}>{habit.name}</h2>
-      <p>Status: {habit.status}</p>
+      <h2 className={styles.habitDetailTitle}>Habit Name: {habit.name}</h2>
+      {(habit.status)?<p>Status: {habit.status}</p>:<p>Status :none</p>}
       <p>Update Status:</p>
       <select className={styles.habitDetailSelect} value={newStatus} onChange={handleStatusChange}>
         <option value='pending'>Pending</option>

@@ -1,7 +1,11 @@
 .habitDetailContainer {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 30px;
+    width: 20vw;
+    text-align: center;
+    margin: 10px;
   }
   
   .habitDetailTitle {

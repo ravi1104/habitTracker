@@ -7,27 +7,29 @@ import AddHabitForm from '../components/AddHabitForm/AddHabitForm';
 
 const HabitDetailPage = () => {
   let { day } = useParams();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
-  if(day==='today'){
-    day=new Date().toISOString().split('T')[0];
+  if (day === 'today') {
+    day = new Date().toISOString().split('T')[0];
   }
   const habits = useSelector(habitSelector);
   const habit = habits[day] || [];
   console.log(habit);
 
-  const handleStatusUpdate=(name, newStatus)=>{
-    const date=day;
-    dispatch(updateHabitStatus({date, name, newStatus}));
+  const handleStatusUpdate = (name, newStatus) => {
+    const date = day;
+    dispatch(updateHabitStatus({ date, name, newStatus }));
   }
 
   return (
-    <div>
+    <div className='container-mid'>
       <h1>Habit Detail</h1>
       <h2>{day}</h2>
-      {habit.map((h)=>{
-        return <HabitDetail key={h.name} habit={h} updateHabit={handleStatusUpdate}/>
-      })}
+      <div>
+        {habit.map((h) => {
+          return <HabitDetail key={h.name} habit={h} updateHabit={handleStatusUpdate} />
+        })}
+      </div>
       <AddHabitForm day={day} />
     </div>
   );
