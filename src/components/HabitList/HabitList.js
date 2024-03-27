@@ -12,8 +12,8 @@ const HabitList = ({ day }) => {
         habits[day].map((habit, index) => (
           <div key={index} className={styles['habit-item']}>
             <h1>Date: {day}</h1>
-            <h1 className={styles.habitHeading}>{habit.name}</h1>
-            <p>{habit.status}</p>
+            <h1 className={styles.habitHeading}>Activity: {habit.name}</h1>
+            <p>Status: {habit.status}</p>
           </div>
         ))
       ) : (
