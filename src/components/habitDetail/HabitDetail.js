@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./HabitDetail.module.css"
+import {useDispatch} from 'react-redux';
+import { updateAsyncHabitStatus } from '../../redux/reducers/habit-reducer';
 
-const HabitDetail = ({ habit, updateHabit }) => {
+const HabitDetail = ({ habit }) => {
   const [newStatus, setNewStatus] = useState(habit.status);
-
+  const dispatch= useDispatch();
   const handleStatusChange = (e) => {
-    const status = e.target.value;
+    const status =e.target.value
+    dispatch(updateAsyncHabitStatus({id:habit._id,status:status}));
     setNewStatus(status);
-    updateHabit(habit.name, status);
   };
   
   useEffect(() => {
@@ -19,10 +21,10 @@ const HabitDetail = ({ habit, updateHabit }) => {
       <h2 className={styles.habitDetailTitle}>Habit Name: {habit.name}</h2>
       {(habit.status)?<p>Status: {habit.status}</p>:<p>Status :none</p>}
       <p>Update Status:</p>
-      <select className={styles.habitDetailSelect} value={newStatus} onChange={handleStatusChange}>
-        <option value='pending'>Pending</option>
-        <option value='done'>Done</option>
-        <option value='none'>None</option>
+      <select className={styles.habitDetailSelect} onChange={handleStatusChange}>
+        <option value='Pending'>Pending</option>
+        <option value='Done'>Done</option>
+        <option value='None'>None</option>
       </select>
     </div>
   );

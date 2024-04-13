@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addHabit, habitSelector } from '../../redux/reducers/habit-reducer';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addNewHabit } from '../../redux/reducers/habit-reducer';
 import styles from './AddHabitFom.module.css'
 
 const AddHabitForm = ({ day }) => {
@@ -8,15 +8,14 @@ const AddHabitForm = ({ day }) => {
   const [habitStatus, setHabitStatus] = useState('none');
 
   const dispatch = useDispatch();
-  const { habit } = useSelector(habitSelector);
-
+  useEffect(()=>{},[dispatch])
   const habitNameInputRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = { name: habitName, status: habitStatus };
-    dispatch(addHabit({ date: day, habit: payload }));
+    // const payload = { name: habitName, status: habitStatus };
+    dispatch(addNewHabit({ date: day, name: habitName, status: habitStatus }));
     setHabitName('');
     setHabitStatus('');
   };

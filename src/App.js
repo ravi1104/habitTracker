@@ -9,7 +9,6 @@ import HabitWeekPage from "./pages/HabitWeekPage";
 import HabitDetailPage from "./pages/HabitDetailPage";
 
 const App = () => {
-
   const router = createBrowserRouter([
     {
       path: "/",
